@@ -1,0 +1,30 @@
+/* 睡眠记录样式 */
+.record-page { min-height: 100vh; background: #F8FAFC; padding: 24rpx; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 0 24rpx; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+.record-list { display: flex; flex-direction: column; gap: 16rpx; }
+.record-card { background: #FFF; border-radius: 20rpx; padding: 24rpx 28rpx; box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04); }
+.record-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16rpx; border-bottom: 1rpx solid #F1F5F9; margin-bottom: 16rpx; }
+.record-date { font-size: 28rpx; font-weight: 700; color: #1E293B; }
+
+.quality-tag { font-size: 22rpx; padding: 6rpx 18rpx; border-radius: 12rpx; font-weight: 600; }
+.quality-tag.excellent { background: #ECFDF5; color: #10B981; }
+.quality-tag.good { background: #E0F7FA; color: #0EA5B9; }
+.quality-tag.normal { background: #FFF7ED; color: #F97316; }
+.quality-tag.bad { background: #FEF2F2; color: #EF4444; }
+
+.record-grid { display: flex; flex-wrap: wrap; gap: 12rpx 32rpx; }
+.record-cell { flex: 1; min-width: 40%; }
+.cell-label { font-size: 24rpx; color: #94A3B8; display: block; margin-bottom: 4rpx; }
+.cell-value { font-size: 28rpx; color: #334155; font-weight: 500; }
+.cell-value.accent { color: #7C3AED; font-weight: 700; }
+
+.empty-state { display: flex; flex-direction: column; align-items: center; padding: 140rpx 40rpx; }
+.empty-emoji { font-size: 80rpx; margin-bottom: 20rpx; }
+.empty-title { font-size: 30rpx; color: #64748B; font-weight: 600; margin-bottom: 8rpx; }
+.empty-hint { font-size: 24rpx; color: #94A3B8; }

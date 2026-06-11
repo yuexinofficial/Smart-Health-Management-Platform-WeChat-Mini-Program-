@@ -1,0 +1,42 @@
+<!-- AI答疑 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">AI 健康答疑</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="chat-page">
+  <scroll-view class="chat-scroll" scroll-y="true" scroll-with-animation="true" scroll-into-view="chat-bottom">
+    <!-- 欢迎 -->
+    <view class="chat-msg assistant" wx:if="{{messages.length === 0}}">
+      <view class="msg-avatar">🤖</view>
+      <view class="msg-bubble welcome-bubble">
+        <text class="welcome-title">你好！我是健康小助手 👋</text>
+        <text class="welcome-desc">你可以问我任何运动健康相关的问题：</text>
+        <view class="example-list">
+          <view class="example-item" bindtap="quickAsk" data-q="BMI怎么计算？">• BMI怎么计算？</view>
+          <view class="example-item" bindtap="quickAsk" data-q="运动后多久可以洗澡？">• 运动后多久可以洗澡？</view>
+          <view class="example-item" bindtap="quickAsk" data-q="增肌期间应该怎么吃？">• 增肌期间应该怎么吃？</view>
+          <view class="example-item" bindtap="quickAsk" data-q="每天走多少步最健康？">• 每天走多少步最健康？</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 消息列表 -->
+    <view class="chat-msg {{item.role}}" wx:for="{{messages}}" wx:key="index">
+      <view class="msg-avatar">{{item.role === 'user' ? '👤' : '🤖'}}</view>
+      <view class="msg-bubble">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+    <view id="chat-bottom"></view>
+  </scroll-view>
+
+  <!-- 输入栏 -->
+  <view class="input-bar">
+    <input class="bar-input" placeholder="输入你的健康问题..." value="{{inputText}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
+    <view class="bar-send {{inputText && !sending ? 'active' : ''}}" bindtap="onSend">
+      <text>{{sending ? '...' : '发送'}}</text>
+    </view>
+  </view>
+</view>

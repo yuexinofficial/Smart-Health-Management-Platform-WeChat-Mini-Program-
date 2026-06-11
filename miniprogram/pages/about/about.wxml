@@ -1,0 +1,63 @@
+<!-- 关于我们 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">关于我们</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="about-page">
+  <!-- Logo区 -->
+  <view class="hero-area">
+    <image class="hero-logo" src="/images/logo.png" mode="aspectFit"></image>
+    <text class="hero-name">运动健康管理</text>
+    <text class="hero-ver">Version 1.0.0</text>
+  </view>
+
+  <!-- 信息卡片 -->
+  <view class="info-card">
+    <view class="info-block">
+      <text class="info-label">📖 应用简介</text>
+      <text class="info-text">运动健康管理是一款基于微信小程序的健康管理系统，帮助用户记录和管理日常健康数据，包括运动、饮食、睡眠和体重等。通过 AI 智能分析，为用户提供个性化的健康建议和运动计划，同时提供社区互动功能，让健康管理变得更加有趣和便捷。</text>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="info-block">
+      <text class="info-label">✨ 主要功能</text>
+      <view class="feature-list">
+        <text class="feature-item">健康打卡 — 每日运动/饮食/睡眠/体重记录</text>
+        <text class="feature-item">数据可视化 — 卡片形式展示健康趋势</text>
+        <text class="feature-item">AI 智能服务 — 健康建议、每日计划、激励</text>
+        <text class="feature-item">社区互动 — 发帖交流、点赞评论</text>
+      </view>
+    </view>
+
+    <view class="divider"></view>
+
+    <view class="info-block">
+      <text class="info-label">🛠 技术栈</text>
+      <view class="tech-grid">
+        <view class="tech-item">
+          <text class="tech-name">前端</text>
+          <text class="tech-val">微信小程序原生</text>
+        </view>
+        <view class="tech-item">
+          <text class="tech-name">后端</text>
+          <text class="tech-val">Node.js + Express</text>
+        </view>
+        <view class="tech-item">
+          <text class="tech-name">数据库</text>
+          <text class="tech-val">MySQL</text>
+        </view>
+        <view class="tech-item">
+          <text class="tech-name">AI</text>
+          <text class="tech-val">Qwen2.5-72B</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-text">
+    <text>如有问题或建议，欢迎通过社区联系我们</text>
+  </view>
+</view>

@@ -1,0 +1,176 @@
+<!-- 健康打卡页面 -->
+<view class="container">
+  <!-- 导航栏 -->
+  <view class="nav-header">
+    <view class="nav-back" bindtap="goBack">
+      <text class="back-icon">←</text>
+    </view>
+    <text class="nav-title">健康打卡</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 记录日期 -->
+  <view class="card">
+    <view class="card-title">📅 记录日期</view>
+    <picker mode="date" value="{{recordDate}}" bindchange="onDateChange">
+      <view class="date-picker">
+        <text>{{recordDate}}</text>
+        <text class="arrow">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 运动记录 -->
+  <view class="card">
+    <view class="card-title">🏃 运动记录</view>
+    <view class="sport-list" hidden="{{sports.length === 0}}">
+      <view class="sport-item" wx:for="{{sports}}" wx:key="key">
+        <view class="sport-info">
+          <text class="sport-name">{{item.name}}</text>
+          <text class="sport-duration">{{item.duration}}分钟 · {{item.calorie}}千卡</text>
+        </view>
+        <view class="sport-delete" catchtap="removeSport" data-id="{{item.key}}">
+          <text>✕</text>
+        </view>
+      </view>
+    </view>
+    <view class="add-section">
+      <button class="add-btn" bindtap="showSportSearch">
+        <text class="add-icon">+</text>
+        <text>添加运动记录</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 饮食记录 -->
+  <view class="card">
+    <view class="card-title">🍽 饮食记录</view>
+    <view class="food-list" hidden="{{foods.length === 0}}">
+      <view class="food-item" wx:for="{{foods}}" wx:key="key">
+        <view class="food-info">
+          <text class="food-name">{{item.name}}</text>
+          <text class="food-grams">{{item.grams}}克 · {{item.calorie}}千卡</text>
+        </view>
+        <view class="food-delete" catchtap="removeFood" data-id="{{item.key}}">
+          <text>✕</text>
+        </view>
+      </view>
+    </view>
+    <view class="add-section">
+      <button class="add-btn" bindtap="showFoodSearch">
+        <text class="add-icon">+</text>
+        <text>添加饮食记录</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 睡眠记录 -->
+  <view class="card">
+    <view class="card-title">😴 睡眠记录</view>
+    <view class="sleep-row">
+      <view class="sleep-field">
+        <text class="field-label">睡眠时长（小时）</text>
+        <input class="field-input" type="text" maxlength="4" placeholder="如: 8" value="{{sleepDuration}}" bindinput="onSleepDurationInput" />
+      </view>
+      <view class="sleep-field">
+        <text class="field-label">睡眠质量</text>
+        <picker mode="selector" range="{{sleepQualities}}" bindchange="onSleepQualityChange">
+          <view class="quality-picker">
+            <text>{{sleepQuality || '请选择'}}</text>
+            <text class="arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <!-- 体重记录 -->
+  <view class="card">
+    <view class="card-title">⚖️ 当前体重</view>
+    <view class="weight-row">
+      <input class="weight-input" type="text" maxlength="5" placeholder="请输入体重" value="{{weight}}" bindinput="onWeightInput" />
+      <text class="weight-unit">kg</text>
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <button class="save-btn" bindtap="onSave" loading="{{saving}}" disabled="{{saving}}">
+    保存记录
+  </button>
+
+  <!-- 运动搜索弹窗 -->
+  <view class="modal-mask" wx:if="{{showSportModal}}" bindtap="closeSportModal"></view>
+  <view class="modal-content" wx:if="{{showSportModal}}">
+    <view class="modal-header">
+      <text class="modal-title">搜索运动项目</text>
+      <text class="modal-close" bindtap="closeSportModal">✕</text>
+    </view>
+    <input class="search-input" placeholder="输入运动名称搜索（如：跑步、游泳）" bindinput="onSportSearch" />
+    <scroll-view class="search-results" scroll-y="true" hidden="{{sportResults.length === 0}}">
+      <view class="search-item" wx:for="{{sportResults}}" wx:key="sport_id" bindtap="selectSport" data-id="{{item.sport_id}}">
+        <view class="search-item-info">
+          <text class="search-item-name">{{item.name}}</text>
+          <text class="search-item-cal">{{item.calorie_per_hour}}千卡/小时</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="no-result" hidden="{{!(sportKeyword && sportResults.length === 0)}}">
+      <text>未找到匹配的运动项目</text>
+    </view>
+  </view>
+
+  <!-- 饮食搜索弹窗 -->
+  <view class="modal-mask" wx:if="{{showFoodModal}}" bindtap="closeFoodModal"></view>
+  <view class="modal-content" wx:if="{{showFoodModal}}">
+    <view class="modal-header">
+      <text class="modal-title">搜索食物</text>
+      <text class="modal-close" bindtap="closeFoodModal">✕</text>
+    </view>
+    <input class="search-input" placeholder="输入食物名称搜索（如：米饭、鸡蛋）" bindinput="onFoodSearch" />
+    <scroll-view class="search-results" scroll-y="true" hidden="{{foodResults.length === 0}}">
+      <view class="search-item" wx:for="{{foodResults}}" wx:key="food_id" bindtap="selectFood" data-id="{{item.food_id}}">
+        <view class="search-item-info">
+          <text class="search-item-name">{{item.name}}</text>
+          <text class="search-item-cal">{{item.calorie_per_100g}}千卡/100克</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="no-result" hidden="{{!(foodKeyword && foodResults.length === 0)}}">
+      <text>未找到匹配的食物</text>
+    </view>
+  </view>
+
+  <!-- 运动时长设置弹窗 -->
+  <view class="modal-mask" wx:if="{{showSportDuration}}" bindtap="closeSportDuration"></view>
+  <view class="modal-content small-modal" wx:if="{{showSportDuration}}">
+    <view class="modal-header">
+      <text class="modal-title">设置运动信息</text>
+    </view>
+    <text class="selected-name">{{selectedSport.name}}</text>
+    <view class="duration-row">
+      <text class="field-label">运动时长（分钟）</text>
+      <input class="field-input" type="text" placeholder="如: 30" value="{{sportDuration}}" bindinput="onSportDurationInput" />
+    </view>
+    <view class="cal-preview" wx:if="{{sportDuration}}">
+      <text>预计消耗: {{sportCalorie}}千卡</text>
+    </view>
+    <button class="confirm-btn" bindtap="confirmSport">确认添加</button>
+  </view>
+
+  <!-- 食物克数设置弹窗 -->
+  <view class="modal-mask" wx:if="{{showFoodGrams}}" bindtap="closeFoodGrams"></view>
+  <view class="modal-content small-modal" wx:if="{{showFoodGrams}}">
+    <view class="modal-header">
+      <text class="modal-title">设置饮食信息</text>
+    </view>
+    <text class="selected-name">{{selectedFood.name}}</text>
+    <view class="duration-row">
+      <text class="field-label">食用克数</text>
+      <input class="field-input" type="text" placeholder="如: 200" value="{{foodGrams}}" bindinput="onFoodGramsInput" />
+    </view>
+    <view class="cal-preview" wx:if="{{foodGrams}}">
+      <text>预计摄入: {{foodCalorie}}千卡</text>
+    </view>
+    <button class="confirm-btn" bindtap="confirmFood">确认添加</button>
+  </view>
+</view>

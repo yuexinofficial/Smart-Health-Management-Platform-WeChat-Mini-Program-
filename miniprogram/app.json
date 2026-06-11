@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/register/register",
+    "pages/forgotPassword/forgotPassword",
+    "pages/about/about",
+    "pages/profile/profile",
+    "pages/editProfile/editProfile",
+    "pages/checkin/checkin",
+    "pages/sportRecord/sportRecord",
+    "pages/dietRecord/dietRecord",
+    "pages/sleepRecord/sleepRecord",
+    "pages/weightRecord/weightRecord",
+    "pages/community/community",
+    "pages/postDetail/postDetail",
+    "pages/createPost/createPost",
+    "pages/myPosts/myPosts",
+    "pages/healthAdvice/healthAdvice",
+    "pages/aiChat/aiChat",
+    "pages/sportRanking/sportRanking"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "运动健康管理",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8FAFC"
+  },
+  "tabBar": {
+    "color": "#94A3B8",
+    "selectedColor": "#0EA5B9",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "主页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "社区",
+        "iconPath": "images/community.png",
+        "selectedIconPath": "images/community-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于获取天气数据"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

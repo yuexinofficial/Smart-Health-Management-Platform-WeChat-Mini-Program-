@@ -1,0 +1,45 @@
+/* 编辑资料样式 */
+.edit-page { min-height: 100vh; background: #F8FAFC; padding: 24rpx; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 0 24rpx; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+/* 头像区域 */
+.avatar-section { display: flex; flex-direction: column; align-items: center; padding: 40rpx 0; }
+.avatar-wrap { position: relative; margin-bottom: 16rpx; }
+.avatar-img { width: 150rpx; height: 150rpx; border-radius: 50%; background: #F1F5F9; }
+.avatar-camera {
+  position: absolute; bottom: 0; right: 0; width: 52rpx; height: 52rpx;
+  border-radius: 50%; background: #FFF; box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.12);
+  display: flex; align-items: center; justify-content: center; font-size: 28rpx;
+}
+.avatar-hint { font-size: 24rpx; color: #94A3B8; }
+
+/* 表单 */
+.form-card { background: #FFF; border-radius: 24rpx; padding: 8rpx 28rpx; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04); margin-bottom: 32rpx; }
+.form-row { padding: 28rpx 0; border-bottom: 1rpx solid #F1F5F9; }
+.form-row.last { border-bottom: none; }
+.form-label { font-size: 28rpx; color: #64748B; margin-bottom: 14rpx; display: block; font-weight: 500; }
+.form-input { width: 100%; height: 80rpx; background: #F8FAFC; border-radius: 14rpx; padding: 0 20rpx; font-size: 30rpx; box-sizing: border-box; color: #1E293B; }
+.form-picker { display: flex; justify-content: space-between; align-items: center; height: 80rpx; background: #F8FAFC; border-radius: 14rpx; padding: 0 20rpx; font-size: 30rpx; color: #1E293B; }
+.placeholder { color: #94A3B8; }
+.picker-arrow { font-size: 32rpx; color: #CBD5E1; }
+
+/* 按钮 */
+.btn-area { display: flex; flex-direction: column; gap: 20rpx; }
+.btn-save {
+  width: 100%; height: 96rpx; background: linear-gradient(135deg, #0EA5B9, #06B6D4);
+  color: #FFF; border-radius: 24rpx; font-size: 32rpx; font-weight: 700;
+  border: none; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6rpx 24rpx rgba(14,165,185,0.3);
+}
+.btn-save::after { border: none; }
+.btn-pwd {
+  width: 100%; height: 88rpx; background: #FFF; color: #F97316;
+  border-radius: 24rpx; font-size: 30rpx; font-weight: 600;
+  border: 2rpx solid #FED7AA; display: flex; align-items: center; justify-content: center;
+}
+.btn-pwd::after { border: none; }

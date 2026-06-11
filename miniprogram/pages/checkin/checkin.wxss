@@ -1,0 +1,98 @@
+/* 健康打卡样式 - Vibrant Wellness */
+.container { min-height: 100vh; background: #F8FAFC; padding-bottom: 140rpx; }
+
+/* 顶部导航 */
+.nav-header { display: flex; align-items: center; padding: 16rpx 24rpx; background: #FFF; border-bottom: 1rpx solid #F1F5F9; position: sticky; top: 0; z-index: 10; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+/* 卡片 */
+.card { background: #FFF; border-radius: 24rpx; padding: 28rpx; margin: 20rpx 24rpx; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04); }
+.card-title { font-size: 30rpx; font-weight: 700; color: #1E293B; margin-bottom: 16rpx; }
+
+/* 日期选择 */
+.date-picker { display: flex; justify-content: space-between; align-items: center; padding: 20rpx 24rpx; background: #F8FAFC; border-radius: 16rpx; font-size: 28rpx; color: #334155; }
+.arrow { color: #94A3B8; font-size: 22rpx; }
+
+/* 运动/食物列表 */
+.sport-list, .food-list { margin-bottom: 20rpx; display: flex; flex-direction: column; gap: 10rpx; }
+.sport-item, .food-item { display: flex; justify-content: space-between; align-items: center; padding: 16rpx 20rpx; border-radius: 14rpx; }
+.sport-item { background: #ECFDF5; }
+.food-item { background: #FFF7ED; }
+.sport-info, .food-info { display: flex; flex-direction: column; }
+.sport-name, .food-name { font-size: 28rpx; font-weight: 600; color: #1E293B; }
+.sport-duration, .food-grams { font-size: 24rpx; color: #64748B; margin-top: 4rpx; }
+.sport-delete, .food-delete { width: 48rpx; height: 48rpx; display: flex; align-items: center; justify-content: center; color: #EF4444; font-size: 26rpx; }
+
+/* 添加按钮 */
+.add-section { margin-top: 8rpx; }
+.add-btn { display: flex; align-items: center; justify-content: center; gap: 8rpx; padding: 20rpx; border: 2rpx dashed #CBD5E1; border-radius: 16rpx; font-size: 26rpx; color: #64748B; background: transparent; }
+.add-btn::after { border: none; }
+.add-icon { font-size: 32rpx; font-weight: 700; color: #0EA5B9; }
+
+/* 睡眠行 */
+.sleep-row { display: flex; gap: 20rpx; }
+.sleep-field { flex: 1; }
+.field-label { font-size: 24rpx; color: #64748B; margin-bottom: 10rpx; display: block; }
+.field-input { width: 100%; height: 80rpx; background: #F8FAFC; border-radius: 14rpx; padding: 0 20rpx; font-size: 28rpx; box-sizing: border-box; color: #1E293B; }
+.quality-picker { display: flex; justify-content: space-between; align-items: center; height: 80rpx; background: #F8FAFC; border-radius: 14rpx; padding: 0 20rpx; font-size: 28rpx; color: #334155; }
+
+/* 体重 */
+.weight-row { display: flex; align-items: center; gap: 12rpx; }
+.weight-input { flex: 1; height: 80rpx; background: #F8FAFC; border-radius: 14rpx; padding: 0 24rpx; font-size: 30rpx; text-align: center; box-sizing: border-box; }
+.weight-unit { font-size: 30rpx; font-weight: 700; color: #64748B; }
+
+/* 保存按钮 */
+.save-btn {
+  width: 88%; margin: 32rpx auto; height: 96rpx; background: linear-gradient(135deg, #0EA5B9, #06B6D4);
+  color: #FFF; border-radius: 24rpx; font-size: 34rpx; font-weight: 700;
+  border: none; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8rpx 28rpx rgba(14,165,185,0.3);
+}
+.save-btn::after { border: none; }
+.save-btn:active { opacity: 0.85; transform: scale(0.98); }
+.save-btn[disabled] { opacity: 0.5; }
+
+/* 弹窗遮罩 */
+.modal-mask { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 100; }
+
+/* 底部弹窗面板（搜索结果） */
+.modal-content {
+  position: fixed; bottom: 0; left: 0; right: 0; background: #FFF;
+  border-radius: 32rpx 32rpx 0 0; padding: 32rpx; z-index: 101;
+  max-height: 70vh; display: flex; flex-direction: column;
+}
+.modal-content.small-modal {
+  bottom: auto; top: 50%; left: 50%; right: auto; width: 85%;
+  transform: translate(-50%, -50%); border-radius: 24rpx; max-height: 60vh;
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24rpx; }
+.modal-title { font-size: 32rpx; font-weight: 700; color: #1E293B; }
+.modal-close { font-size: 34rpx; color: #94A3B8; padding: 8rpx; }
+
+/* 搜索输入框 */
+.search-input { width: 100%; height: 84rpx; background: #F8FAFC; border-radius: 16rpx; padding: 0 24rpx; font-size: 28rpx; box-sizing: border-box; margin-bottom: 20rpx; }
+
+/* 搜索结果 */
+.search-results { max-height: 500rpx; }
+.search-item { padding: 22rpx 0; border-bottom: 1rpx solid #F1F5F9; }
+.search-item:active { background: #F8FAFC; border-radius: 12rpx; }
+.search-item-info { display: flex; justify-content: space-between; align-items: center; }
+.search-item-name { font-size: 30rpx; color: #1E293B; font-weight: 500; }
+.search-item-cal { font-size: 24rpx; color: #0EA5B9; font-weight: 500; }
+
+.no-result { text-align: center; padding: 60rpx 0; color: #94A3B8; font-size: 28rpx; }
+
+/* 时长/克数弹窗 */
+.selected-name { font-size: 32rpx; font-weight: 700; color: #0EA5B9; text-align: center; margin-bottom: 24rpx; }
+.duration-row { margin-bottom: 20rpx; }
+.cal-preview { text-align: center; padding: 16rpx; background: #ECFDF5; border-radius: 12rpx; color: #10B981; font-size: 26rpx; font-weight: 600; margin-bottom: 20rpx; }
+
+.confirm-btn {
+  width: 100%; height: 84rpx; background: #0EA5B9; color: #FFF;
+  border-radius: 18rpx; font-size: 30rpx; font-weight: 600;
+  border: none; display: flex; align-items: center; justify-content: center;
+}
+.confirm-btn::after { border: none; }

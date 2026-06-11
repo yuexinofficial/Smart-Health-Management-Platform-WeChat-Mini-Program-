@@ -1,0 +1,42 @@
+<!-- 发布帖子 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">发布帖子</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="publish-page">
+  <view class="publish-card">
+    <!-- 主题 -->
+    <view class="field">
+      <text class="field-label">📌 主题</text>
+      <input class="topic-input" placeholder="给你的帖子起个主题吧（最多20字）" maxlength="20" value="{{topic}}" bindinput="onTopicInput" />
+      <text class="count">{{topic.length}}/20</text>
+    </view>
+
+    <!-- 内容 -->
+    <view class="field">
+      <text class="field-label">✍️ 内容</text>
+      <textarea class="content-area" placeholder="分享你的健康生活、运动心得..." maxlength="1000" value="{{content}}" bindinput="onContentInput" auto-height />
+      <text class="count">{{content.length}}/1000</text>
+    </view>
+
+    <!-- 图片 -->
+    <view class="field">
+      <text class="field-label">🖼️ 图片（可选）</text>
+      <view class="img-zone">
+        <image class="preview-img" wx:if="{{imagePath}}" src="{{imagePath}}" mode="aspectFill" bindtap="previewImage"></image>
+        <view class="img-upload" wx:if="{{!imagePath}}" bindtap="chooseImage">
+          <text class="upload-plus">+</text>
+          <text class="upload-label">添加图片</text>
+        </view>
+        <view class="img-remove" wx:if="{{imagePath}}" bindtap="deleteImage">✕</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="btn-row">
+    <button class="btn-cancel" bindtap="goBack">返回</button>
+    <button class="btn-publish" bindtap="onPublish" loading="{{publishing}}">发布帖子</button>
+  </view>
+</view>

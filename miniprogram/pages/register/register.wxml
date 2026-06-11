@@ -1,0 +1,84 @@
+<!-- 注册页面 - Vibrant Wellness -->
+<view class="page-bg">
+  <view class="bg-decoration">
+    <view class="bg-circle bg-circle-1"></view>
+    <view class="bg-circle bg-circle-2"></view>
+  </view>
+
+  <view class="page-content">
+    <!-- 顶部导航 -->
+    <view class="top-nav">
+      <view class="nav-back-btn" bindtap="onBack">
+        <text class="back-arrow">←</text>
+      </view>
+      <text class="nav-title-text">创建账号</text>
+      <view class="nav-spacer"></view>
+    </view>
+
+    <!-- 表单卡片 -->
+    <view class="form-card animate-slide-up">
+      <text class="form-title">加入我们</text>
+      <text class="form-subtitle">开启你的健康之旅</text>
+
+      <view class="input-group">
+        <view class="input-wrapper">
+          <text class="input-icon-left">📱</text>
+          <input
+            class="input-field input-has-icon"
+            type="text"
+            maxlength="11"
+            placeholder="请输入手机号"
+            placeholder-class="input-placeholder"
+            value="{{phone}}"
+            bindinput="onPhoneInput"
+          />
+        </view>
+        <text class="error-tip" wx:if="{{phoneError}}">{{phoneError}}</text>
+      </view>
+
+      <view class="input-group">
+        <view class="input-wrapper">
+          <text class="input-icon-left">🔒</text>
+          <input
+            class="input-field input-has-icon input-has-right"
+            password="{{!showPassword}}"
+            maxlength="20"
+            placeholder="请输入密码（至少6位）"
+            placeholder-class="input-placeholder"
+            value="{{password}}"
+            bindinput="onPasswordInput"
+          />
+          <view class="pwd-toggle" bindtap="togglePassword">
+            <text>{{showPassword ? '🙈' : '👁️'}}</text>
+          </view>
+        </view>
+        <text class="error-tip" wx:if="{{passwordError}}">{{passwordError}}</text>
+      </view>
+
+      <view class="input-group">
+        <view class="input-wrapper">
+          <text class="input-icon-left">✓</text>
+          <input
+            class="input-field input-has-icon"
+            password="{{!showConfirm}}"
+            maxlength="20"
+            placeholder="请再次输入密码"
+            placeholder-class="input-placeholder"
+            value="{{confirmPassword}}"
+            bindinput="onConfirmPasswordInput"
+          />
+        </view>
+        <text class="error-tip" wx:if="{{confirmError}}">{{confirmError}}</text>
+      </view>
+
+      <button class="btn btn-primary btn-lg register-btn" bindtap="onRegister" loading="{{loading}}">
+        注 册
+      </button>
+
+      <view class="login-link">
+        <text>已有账号？</text>
+        <text class="link-text" bindtap="onBack">立即登录</text>
+      </view>
+    </view>
+  </view>
+</view>

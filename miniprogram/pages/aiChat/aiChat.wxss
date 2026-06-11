@@ -1,0 +1,35 @@
+/* AI答疑样式 */
+.chat-page { display: flex; flex-direction: column; height: 100vh; background: #F8FAFC; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 24rpx; background: #FFF; border-bottom: 1rpx solid #F1F5F9; flex-shrink: 0; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+.chat-scroll { flex: 1; padding: 20rpx 24rpx; }
+
+/* 消息 */
+.chat-msg { display: flex; margin-bottom: 28rpx; align-items: flex-start; }
+.chat-msg.user { flex-direction: row-reverse; }
+.msg-avatar { width: 60rpx; height: 60rpx; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30rpx; flex-shrink: 0; }
+.chat-msg.assistant .msg-avatar { background: #E0F7FA; }
+.chat-msg.user .msg-avatar { background: #F1F5F9; }
+
+.msg-bubble { max-width: 72%; padding: 20rpx 24rpx; font-size: 28rpx; line-height: 1.7; }
+.chat-msg.assistant .msg-bubble { background: #FFF; margin-left: 16rpx; border-radius: 4rpx 18rpx 18rpx 18rpx; color: #334155; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.04); }
+.chat-msg.user .msg-bubble { background: #0EA5B9; color: #FFF; margin-right: 16rpx; border-radius: 18rpx 4rpx 18rpx 18rpx; }
+
+/* 欢迎卡片 */
+.welcome-bubble { min-width: 500rpx; }
+.welcome-title { font-size: 30rpx; font-weight: 700; color: #1E293B; display: block; margin-bottom: 12rpx; }
+.welcome-desc { font-size: 26rpx; color: #64748B; display: block; margin-bottom: 16rpx; }
+.example-list { }
+.example-item { font-size: 26rpx; color: #0EA5B9; padding: 12rpx 0; line-height: 1.5; }
+.example-item:active { color: #0D9488; }
+
+/* 输入栏 */
+.input-bar { display: flex; align-items: center; padding: 16rpx 24rpx; background: #FFF; border-top: 1rpx solid #F1F5F9; gap: 16rpx; flex-shrink: 0; padding-bottom: calc(16rpx + env(safe-area-inset-bottom)); }
+.bar-input { flex: 1; height: 76rpx; background: #F8FAFC; border-radius: 38rpx; padding: 0 28rpx; font-size: 28rpx; }
+.bar-send { padding: 0 32rpx; height: 76rpx; display: flex; align-items: center; font-size: 28rpx; font-weight: 600; color: #94A3B8; border-radius: 38rpx; }
+.bar-send.active { color: #0EA5B9; }

@@ -1,0 +1,25 @@
+/* 我的帖子样式 */
+.myposts-page { min-height: 100vh; background: #F8FAFC; padding: 24rpx; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 0 24rpx; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.manage-toggle { padding: 8rpx 24rpx; border-radius: 20rpx; font-size: 26rpx; color: #64748B; background: #F1F5F9; }
+.manage-toggle.active { background: #FEF2F2; color: #EF4444; }
+
+.post-list { display: flex; flex-direction: column; gap: 16rpx; }
+.post-item { background: #FFF; border-radius: 20rpx; padding: 24rpx 28rpx; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04); }
+.post-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12rpx; }
+.post-topic { font-size: 30rpx; font-weight: 700; color: #1E293B; }
+.post-time { font-size: 22rpx; color: #94A3B8; }
+.post-text { font-size: 28rpx; color: #475569; line-height: 1.6; display: block; margin-bottom: 16rpx; }
+.post-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 14rpx; border-top: 1rpx solid #F1F5F9; }
+.post-stats { display: flex; gap: 28rpx; font-size: 24rpx; color: #94A3B8; }
+.post-del { display: none; padding: 8rpx 24rpx; background: #FEF2F2; color: #EF4444; font-size: 24rpx; border-radius: 12rpx; }
+.post-del.show { display: block; }
+
+.empty-state { display: flex; flex-direction: column; align-items: center; padding: 140rpx 40rpx; }
+.empty-emoji { font-size: 80rpx; margin-bottom: 20rpx; }
+.empty-title { font-size: 30rpx; color: #64748B; font-weight: 600; margin-bottom: 8rpx; }
+.empty-desc { font-size: 26rpx; color: #94A3B8; }

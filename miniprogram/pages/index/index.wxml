@@ -1,0 +1,94 @@
+<!-- 登录页面 - Vibrant Wellness -->
+<view class="login-page">
+  <!-- 装饰背景 -->
+  <view class="bg-decoration">
+    <view class="bg-circle bg-circle-1"></view>
+    <view class="bg-circle bg-circle-2"></view>
+  </view>
+
+  <view class="login-content">
+    <!-- Logo区域 -->
+    <view class="brand-area animate-fade-in">
+      <view class="logo-wrapper">
+        <image class="logo" src="/images/logo.png" mode="aspectFit"></image>
+      </view>
+      <text class="brand-name">运动健康管理</text>
+      <text class="brand-slogan">科学运动 · 健康生活 · 遇见更好的自己</text>
+    </view>
+
+    <!-- 微信快捷登录按钮 -->
+    <view class="wechat-area animate-slide-up">
+      <button
+        class="wechat-login-btn"
+        bindtap="onWechatLogin"
+        loading="{{wechatLoading}}"
+        disabled="{{wechatLoading}}"
+      >
+        <text class="wechat-icon">💬</text>
+        <text>{{wechatLoading ? '登录中...' : '微信一键登录'}}</text>
+      </button>
+      <text class="wechat-hint">首次登录将自动创建账号</text>
+    </view>
+
+    <!-- 分隔线 -->
+    <view class="divider-row">
+      <view class="divider-line"></view>
+      <text class="divider-text">其他登录方式</text>
+      <view class="divider-line"></view>
+    </view>
+
+    <!-- 手机号登录表单 -->
+    <view class="form-area">
+      <!-- 手机号 -->
+      <view class="input-group">
+        <view class="input-wrapper">
+          <text class="input-icon-left">📱</text>
+          <input
+            class="input-field input-has-icon"
+            type="text"
+            maxlength="11"
+            placeholder="请输入手机号"
+            placeholder-class="input-placeholder"
+            value="{{phone}}"
+            bindinput="onPhoneInput"
+            adjust-position="{{true}}"
+          />
+        </view>
+      </view>
+
+      <!-- 密码 -->
+      <view class="input-group">
+        <view class="input-wrapper">
+          <text class="input-icon-left">🔒</text>
+          <input
+            class="input-field input-has-icon input-has-right"
+            password="{{!showPassword}}"
+            maxlength="20"
+            placeholder="请输入密码"
+            placeholder-class="input-placeholder"
+            value="{{password}}"
+            bindinput="onPasswordInput"
+            adjust-position="{{true}}"
+          />
+          <view class="password-toggle" bindtap="togglePassword">
+            <text>{{showPassword ? '🙈' : '👁️'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 登录按钮 -->
+      <button class="btn btn-primary btn-lg login-btn" bindtap="onLogin" loading="{{loading}}" disabled="{{loading}}">
+        登 录
+      </button>
+    </view>
+
+    <!-- 底部链接 -->
+    <view class="bottom-links">
+      <text class="link-item" bindtap="goToRegister">注册账号</text>
+      <view class="link-dot"></view>
+      <text class="link-item" bindtap="goToForgotPassword">忘记密码</text>
+      <view class="link-dot"></view>
+      <text class="link-item" bindtap="goToAbout">关于我们</text>
+    </view>
+  </view>
+</view>

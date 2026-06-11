@@ -1,0 +1,25 @@
+# 依赖
+project_root/node_modules/
+
+# 环境变量（包含敏感信息）
+project_root/.env
+
+# 上传的头像文件
+project_root/uploads/*.jpg
+project_root/uploads/*.jpeg
+project_root/uploads/*.png
+project_root/uploads/*.gif
+project_root/uploads/*.webp
+
+# 微信开发者工具
+miniprogram/.idea/
+*.DS_Store
+
+# 文档
+*.docx
+*.pdf
+
+# 临时文件
+*.log
+.DS_Store
+Thumbs.db

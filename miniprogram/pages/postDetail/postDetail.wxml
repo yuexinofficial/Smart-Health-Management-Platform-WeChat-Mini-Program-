@@ -1,0 +1,72 @@
+<!-- 帖子详情页 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">帖子详情</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="detail-page" wx:if="{{post}}">
+  <!-- 帖子内容 -->
+  <view class="post-card-main">
+    <view class="post-author-row">
+      <image class="author-avatar" src="{{post.avatar_url || '/images/avatar.png'}}" mode="aspectFill"></image>
+      <view class="author-info">
+        <text class="author-name">{{post.author || '匿名用户'}}</text>
+        <text class="post-time">{{post.post_time}}</text>
+      </view>
+    </view>
+    <view class="post-topic-badge">{{post.post_topic || '综合'}}</view>
+    <text class="post-body">{{post.content}}</text>
+    <image class="post-img" wx:if="{{post.image_path}}" src="{{post.image_path}}" mode="widthFix"></image>
+
+    <view class="post-actions-bar">
+      <view class="action-btn {{post.is_liked ? 'liked' : ''}}" bindtap="onToggleLike">
+        <text>{{post.is_liked ? '❤️' : '🤍'}}</text>
+        <text class="action-num">{{post.like_count || 0}}</text>
+      </view>
+      <view class="action-btn">
+        <text>💬</text>
+        <text class="action-num">{{post.comment_count || 0}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论区 -->
+  <view class="comments-section">
+    <text class="comments-title">评论 ({{comments.length}})</text>
+
+    <view class="comment-item" wx:for="{{comments}}" wx:key="comment_id">
+      <view class="comment-top">
+        <image class="comment-avatar" src="{{item.avatar_url || '/images/avatar.png'}}" mode="aspectFill"></image>
+        <view class="comment-meta">
+          <text class="comment-author">{{item.nickname || '匿名用户'}}</text>
+          <text class="comment-time">{{item.comment_time}}</text>
+        </view>
+        <view class="comment-dots" bindtap="showCommentMenu" data-item="{{item}}">
+          <text>⋯</text>
+        </view>
+      </view>
+      <text class="comment-body">{{item.comment_content}}</text>
+    </view>
+
+    <view class="no-comments" wx:if="{{comments.length === 0}}">
+      <text>💬 暂无评论，快来抢沙发~</text>
+    </view>
+  </view>
+
+  <!-- 底部输入栏 -->
+  <view class="input-bar">
+    <input class="bar-input" placeholder="写下你的评论..." value="{{commentText}}" bindinput="onCommentInput" confirm-type="send" bindconfirm="onSubmitComment" />
+    <view class="bar-send {{commentText ? 'active' : ''}}" bindtap="onSubmitComment">
+      <text>发送</text>
+    </view>
+  </view>
+</view>
+
+<!-- 评论操作菜单 -->
+<view class="modal-mask" wx:if="{{showMenu}}" bindtap="closeMenu"></view>
+<view class="action-sheet" wx:if="{{showMenu}}">
+  <view class="sheet-item danger" wx:if="{{canDelete}}" bindtap="onDeleteComment">删除评论</view>
+  <view class="sheet-item" bindtap="onCopyComment">复制评论</view>
+  <view class="sheet-item cancel" bindtap="closeMenu">取消</view>
+</view>

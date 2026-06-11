@@ -1,0 +1,128 @@
+<!-- 主页 - Vibrant Wellness -->
+<view class="home-page">
+  <!-- 顶部渐变头部 -->
+  <view class="home-header">
+    <view class="header-top">
+      <view class="greeting-area">
+        <text class="greeting">{{greetingText}}</text>
+        <text class="greeting-sub">今天也要加油哦 💪</text>
+      </view>
+      <view class="header-avatar" bindtap="goToProfile">
+        <image class="avatar-sm" src="{{avatarUrl}}" mode="aspectFill"></image>
+      </view>
+    </view>
+
+    <!-- 步数环形卡片 -->
+    <view class="steps-hero">
+      <view class="steps-ring">
+        <view class="ring-outer">
+          <view class="ring-inner">
+            <text class="steps-value">{{steps}}</text>
+            <text class="steps-unit">步</text>
+          </view>
+        </view>
+      </view>
+      <view class="steps-info">
+        <text class="steps-label">今日步数</text>
+        <text class="steps-sub">微信运动同步</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷卡片行 -->
+  <view class="quick-cards">
+    <!-- 激励卡片 -->
+    <view class="quick-card motivation-quick" wx:if="{{motivation}}">
+      <text class="quick-card-icon">💡</text>
+      <view class="quick-card-content">
+        <text class="quick-card-title">每日激励</text>
+        <text class="quick-card-text">{{motivation}}</text>
+      </view>
+    </view>
+
+    <!-- 天气卡片 -->
+    <view class="quick-card weather-quick" wx:if="{{weather}}">
+      <view class="weather-main">
+        <text class="weather-temp">{{weather.temp}}</text>
+        <text class="weather-text">{{weather.text}}</text>
+      </view>
+      <view class="weather-meta">
+        <text class="weather-loc">📍 {{weather.location}}</text>
+        <text>💧 {{weather.humidity}}  🌬 {{weather.wind}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能网格 -->
+  <view class="section">
+    <text class="section-title">健康管理</text>
+    <view class="func-grid">
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToCheckin">
+        <view class="func-icon-bg" style="background: #ECFDF5;">
+          <text class="func-emoji">📝</text>
+        </view>
+        <text class="func-name">健康打卡</text>
+        <text class="func-desc">每日记录</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToSportRecord">
+        <view class="func-icon-bg" style="background: #E0F7FA;">
+          <text class="func-emoji">🏃</text>
+        </view>
+        <text class="func-name">运动记录</text>
+        <text class="func-desc">查看历史</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToDietRecord">
+        <view class="func-icon-bg" style="background: #FFF7ED;">
+          <text class="func-emoji">🍎</text>
+        </view>
+        <text class="func-name">饮食记录</text>
+        <text class="func-desc">营养管理</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToSleepRecord">
+        <view class="func-icon-bg" style="background: #F5F3FF;">
+          <text class="func-emoji">😴</text>
+        </view>
+        <text class="func-name">睡眠记录</text>
+        <text class="func-desc">质量追踪</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToWeightRecord">
+        <view class="func-icon-bg" style="background: #FFF1F2;">
+          <text class="func-emoji">⚖️</text>
+        </view>
+        <text class="func-name">体重记录</text>
+        <text class="func-desc">身材管理</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToHealthAdvice">
+        <view class="func-icon-bg" style="background: #ECFDF5;">
+          <text class="func-emoji">💊</text>
+        </view>
+        <text class="func-name">健康建议</text>
+        <text class="func-desc">AI分析</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToAIChat">
+        <view class="func-icon-bg" style="background: #E0F7FA;">
+          <text class="func-emoji">🤖</text>
+        </view>
+        <text class="func-name">AI答疑</text>
+        <text class="func-desc">智能问答</text>
+      </view>
+
+      <view class="func-card stagger-item animate-fade-in" bindtap="goToSportRanking">
+        <view class="func-icon-bg" style="background: #FFF7ED;">
+          <text class="func-emoji">🏆</text>
+        </view>
+        <text class="func-name">运动排行</text>
+        <text class="func-desc">好友比拼</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全距离 -->
+  <view class="safe-bottom" style="height: 140rpx;"></view>
+</view>

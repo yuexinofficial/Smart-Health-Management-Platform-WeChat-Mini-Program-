@@ -1,0 +1,36 @@
+/* 运动排行样式 */
+.rank-page { min-height: 100vh; background: #F8FAFC; padding: 24rpx; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 0 24rpx; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+.rank-hero { text-align: center; padding: 36rpx 0; }
+.rank-emoji { font-size: 80rpx; display: block; margin-bottom: 16rpx; }
+.rank-hero-title { font-size: 34rpx; font-weight: 800; color: #1E293B; display: block; margin-bottom: 8rpx; }
+.rank-hero-sub { font-size: 24rpx; color: #94A3B8; }
+
+.rank-list { background: #FFF; border-radius: 24rpx; overflow: hidden; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04); }
+
+.rank-row { display: flex; align-items: center; padding: 24rpx 28rpx; border-bottom: 1rpx solid #F8FAFC; }
+.rank-row:last-child { border-bottom: none; }
+.rank-row.gold { background: linear-gradient(135deg, #FFFDF5, #FFF9E6); }
+.rank-row.silver { background: linear-gradient(135deg, #FCFCFD, #F1F5F9); }
+.rank-row.bronze { background: linear-gradient(135deg, #FFFCF7, #FFF2E5); }
+
+.rank-pos { width: 64rpx; text-align: center; margin-right: 16rpx; }
+.pos-medal { font-size: 44rpx; }
+.pos-num { font-size: 32rpx; font-weight: 700; color: #94A3B8; }
+
+.rank-body { flex: 1; }
+.rank-sport { font-size: 28rpx; font-weight: 600; color: #1E293B; display: block; margin-bottom: 4rpx; }
+.rank-count { font-size: 24rpx; color: #94A3B8; }
+
+.rank-bar-wrap { width: 120rpx; height: 8rpx; background: #F1F5F9; border-radius: 4rpx; overflow: hidden; }
+.rank-bar { height: 100%; background: linear-gradient(90deg, #0EA5B9, #06B6D4); border-radius: 4rpx; transition: width 0.6s ease; }
+
+.empty-state { display: flex; flex-direction: column; align-items: center; padding: 120rpx 0; }
+.empty-emoji { font-size: 80rpx; margin-bottom: 20rpx; }
+.empty-title { font-size: 30rpx; color: #94A3B8; }

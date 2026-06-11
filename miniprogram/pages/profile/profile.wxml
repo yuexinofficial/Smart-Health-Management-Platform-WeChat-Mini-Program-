@@ -1,0 +1,55 @@
+<!-- 个人中心 - Vibrant Wellness -->
+<view class="profile-page">
+  <!-- 头部 -->
+  <view class="profile-header">
+    <view class="header-bg"></view>
+    <view class="profile-avatar-wrap">
+      <image class="profile-avatar" src="{{userInfo.avatar_url || '/images/avatar.png'}}" mode="aspectFill"></image>
+      <view class="avatar-badge" bindtap="goToEditProfile">
+        <text>✏️</text>
+      </view>
+    </view>
+    <text class="profile-name">{{userInfo.nickname || '运动达人'}}</text>
+    <text class="profile-phone">{{phone}}</text>
+    <view class="profile-tags">
+      <text class="profile-tag">{{userInfo.gender || '未设置'}}</text>
+      <text class="profile-tag" wx:if="{{userInfo.height}}">{{userInfo.height}}cm</text>
+    </view>
+  </view>
+
+  <!-- 菜单 -->
+  <view class="menu-section">
+    <view class="menu-group">
+      <view class="menu-item" bindtap="goToMyPosts">
+        <view class="menu-icon-wrap" style="background:#ECFDF5;">
+          <text class="menu-emoji">📝</text>
+        </view>
+        <text class="menu-label">我的帖子</text>
+        <text class="menu-arrow">›</text>
+      </view>
+
+      <view class="menu-item" bindtap="goToEditProfile">
+        <view class="menu-icon-wrap" style="background:#E0F7FA;">
+          <text class="menu-emoji">👤</text>
+        </view>
+        <text class="menu-label">编辑资料</text>
+        <text class="menu-arrow">›</text>
+      </view>
+
+      <view class="menu-item" bindtap="goToAbout">
+        <view class="menu-icon-wrap" style="background:#FFF7ED;">
+          <text class="menu-emoji">ℹ️</text>
+        </view>
+        <text class="menu-label">关于我们</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 退出 -->
+  <view class="logout-area">
+    <button class="logout-btn" bindtap="onLogout">退出登录</button>
+  </view>
+
+  <view class="safe-bottom" style="height:140rpx;"></view>
+</view>

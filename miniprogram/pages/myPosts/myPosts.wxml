@@ -1,0 +1,35 @@
+<!-- 我的帖子 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">我的帖子</text>
+  <view class="manage-toggle {{isManaging ? 'active' : ''}}" bindtap="toggleManage">
+    <text>{{isManaging ? '完成' : '管理'}}</text>
+  </view>
+</view>
+
+<view class="myposts-page">
+  <view class="post-list" wx:if="{{posts.length > 0}}">
+    <view class="post-item" wx:for="{{posts}}" wx:key="post_id">
+      <view class="post-top">
+        <text class="post-topic">{{item.post_topic || '无主题'}}</text>
+        <text class="post-time">{{item.formatted_time}}</text>
+      </view>
+      <text class="post-text">{{item.content}}</text>
+      <view class="post-bottom">
+        <view class="post-stats">
+          <text>💬 {{item.comment_count || 0}}</text>
+          <text>❤️ {{item.like_count || 0}}</text>
+        </view>
+        <view class="post-del {{isManaging ? 'show' : ''}}" bindtap="onDeletePost" data-id="{{item.post_id}}">
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <text class="empty-emoji">📝</text>
+    <text class="empty-title">还没有发布过帖子</text>
+    <text class="empty-desc">去社区分享你的健康心得吧</text>
+  </view>
+</view>

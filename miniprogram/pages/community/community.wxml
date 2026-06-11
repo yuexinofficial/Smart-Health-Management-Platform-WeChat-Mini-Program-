@@ -1,0 +1,47 @@
+<!-- 社区页面 - Vibrant Wellness -->
+<view class="community-page">
+  <!-- 搜索栏 -->
+  <view class="search-header">
+    <view class="search-box">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索帖子..." value="{{searchQuery}}" bindinput="onSearchInput" confirm-type="search" bindconfirm="onSearch" />
+    </view>
+    <view class="create-btn" bindtap="goToCreatePost">
+      <text class="create-icon">+</text>
+    </view>
+  </view>
+
+  <!-- 帖子列表 -->
+  <view class="post-list" wx:if="{{posts.length > 0}}">
+    <view class="post-card stagger-item animate-fade-in" wx:for="{{posts}}" wx:key="post_id" bindtap="goToDetail" data-id="{{item.post_id}}">
+      <view class="post-top">
+        <view class="post-topic-tag">{{item.post_topic || '综合'}}</view>
+        <text class="post-time">{{item.formatted_time}}</text>
+      </view>
+      <text class="post-text">{{item.content}}</text>
+      <view class="post-bottom">
+        <view class="post-author">👤 {{item.author || '匿名用户'}}</view>
+        <view class="post-stats">
+          <text class="stat-item">💬 {{item.comment_count || 0}}</text>
+          <text class="stat-item">❤️ {{item.like_count || 0}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="load-footer" wx:if="{{posts.length > 0}}">
+    <text class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">{{loadingMore ? '加载中...' : '加载更多'}}</text>
+    <text class="no-more" wx:else>— 已经到底了 —</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{posts.length === 0 && !loading}}">
+    <text class="empty-emoji">📭</text>
+    <text class="empty-title">暂无帖子</text>
+    <text class="empty-desc">快来发布第一条帖子吧</text>
+    <button class="btn btn-primary btn-sm" bindtap="goToCreatePost">发布帖子</button>
+  </view>
+
+  <view class="safe-bottom" style="height:140rpx;"></view>
+</view>

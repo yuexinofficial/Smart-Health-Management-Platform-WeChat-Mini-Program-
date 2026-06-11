@@ -1,0 +1,31 @@
+<!-- 体重记录 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">体重记录</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="record-page">
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="record-card" wx:for="{{records}}" wx:key="record_date">
+      <view class="record-head">
+        <text class="record-date">📅 {{item.record_date}}</text>
+      </view>
+      <view class="record-grid">
+        <view class="record-cell">
+          <text class="cell-label">身高</text>
+          <text class="cell-value">{{item.height || '未知'}} cm</text>
+        </view>
+        <view class="record-cell">
+          <text class="cell-label">体重</text>
+          <text class="cell-value weight-value">{{item.weight}} kg</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="empty-state" wx:else>
+    <text class="empty-emoji">⚖️</text>
+    <text class="empty-title">暂无体重记录</text>
+    <text class="empty-hint">完成健康打卡后即可查看</text>
+  </view>
+</view>

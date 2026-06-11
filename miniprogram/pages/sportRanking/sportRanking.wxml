@@ -1,0 +1,35 @@
+<!-- 运动排行 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">运动排行</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="rank-page">
+  <view class="rank-hero">
+    <text class="rank-emoji">🏆</text>
+    <text class="rank-hero-title">最受欢迎运动</text>
+    <text class="rank-hero-sub">看看大家都在做什么运动</text>
+  </view>
+
+  <view class="rank-list" wx:if="{{ranking.length > 0}}">
+    <view class="rank-row {{index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : ''}}" wx:for="{{ranking}}" wx:key="index">
+      <view class="rank-pos">
+        <text class="pos-num" wx:if="{{index >= 3}}">{{index + 1}}</text>
+        <text class="pos-medal" wx:else>{{index === 0 ? '🥇' : index === 1 ? '🥈' : '🥉'}}</text>
+      </view>
+      <view class="rank-body">
+        <text class="rank-sport">{{item.sport_content || '未知运动'}}</text>
+        <text class="rank-count">打卡 {{item.frequency}} 次</text>
+      </view>
+      <view class="rank-bar-wrap">
+        <view class="rank-bar" style="width:{{item.frequency / maxCount * 100}}%"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <text class="empty-emoji">📊</text>
+    <text class="empty-title">暂无排行数据</text>
+  </view>
+</view>

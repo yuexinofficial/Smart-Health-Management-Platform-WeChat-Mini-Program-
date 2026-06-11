@@ -1,0 +1,51 @@
+<!-- 运动记录 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">运动记录</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="record-page">
+  <!-- 日期筛选 -->
+  <view class="filter-bar">
+    <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+      <view class="filter-box"><text>{{startDate || '开始日期'}}</text></view>
+    </picker>
+    <text class="filter-sep">至</text>
+    <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+      <view class="filter-box"><text>{{endDate || '结束日期'}}</text></view>
+    </picker>
+    <view class="filter-btn" bindtap="onSearch">
+      <text>查询</text>
+    </view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="record-card" wx:for="{{records}}" wx:key="record_date">
+      <view class="record-head">
+        <text class="record-date">📅 {{item.record_date}}</text>
+      </view>
+      <view class="record-grid">
+        <view class="record-cell">
+          <text class="cell-label">运动时长</text>
+          <text class="cell-value accent">{{item.sport_duration}} 分钟</text>
+        </view>
+        <view class="record-cell">
+          <text class="cell-label">消耗热量</text>
+          <text class="cell-value accent">{{item.calorie_burned}} 千卡</text>
+        </view>
+        <view class="record-cell full" wx:if="{{item.sport_content}}">
+          <text class="cell-label">运动内容</text>
+          <text class="cell-value">{{item.sport_content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:else>
+    <text class="empty-emoji">🏃</text>
+    <text class="empty-title">暂无运动记录</text>
+    <text class="empty-hint">选择日期范围后点击查询</text>
+  </view>
+</view>

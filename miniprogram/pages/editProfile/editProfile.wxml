@@ -1,0 +1,48 @@
+<!-- 编辑资料 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">编辑资料</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="edit-page">
+  <!-- 头像 -->
+  <view class="avatar-section">
+    <view class="avatar-wrap">
+      <image class="avatar-img" src="{{avatarUrl || '/images/avatar.png'}}" mode="aspectFill"></image>
+      <view class="avatar-camera" bindtap="chooseAvatar">
+        <text>📷</text>
+      </view>
+    </view>
+    <text class="avatar-hint">点击修改头像</text>
+  </view>
+
+  <!-- 表单 -->
+  <view class="form-card">
+    <view class="form-row">
+      <text class="form-label">昵称</text>
+      <input class="form-input" placeholder="请输入昵称" value="{{nickname}}" bindinput="onNicknameInput" />
+    </view>
+
+    <view class="form-row">
+      <text class="form-label">性别</text>
+      <picker mode="selector" range="{{genderOptions}}" bindchange="onGenderChange">
+        <view class="form-picker">
+          <text class="{{gender ? '' : 'placeholder'}}">{{gender || '请选择性别'}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-row last">
+      <text class="form-label">身高（厘米）</text>
+      <input class="form-input" type="text" placeholder="请输入身高" value="{{height}}" bindinput="onHeightInput" />
+    </view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="btn-area">
+    <button class="btn-save" bindtap="onSave" loading="{{saving}}">保存修改</button>
+    <button class="btn-pwd" bindtap="goToChangePwd">修改密码</button>
+  </view>
+</view>

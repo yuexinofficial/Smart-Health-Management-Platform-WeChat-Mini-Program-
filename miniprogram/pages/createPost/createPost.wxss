@@ -1,0 +1,33 @@
+/* 发布帖子样式 */
+.publish-page { min-height: 100vh; background: #F8FAFC; padding: 24rpx; }
+
+.nav-header { display: flex; align-items: center; padding: 16rpx 0 24rpx; }
+.nav-back { width: 60rpx; height: 60rpx; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #F8FAFC; }
+.back-icon { font-size: 36rpx; color: #1E293B; font-weight: 600; }
+.nav-title { flex: 1; text-align: center; font-size: 34rpx; font-weight: 700; color: #1E293B; }
+.nav-placeholder { width: 60rpx; }
+
+.publish-card { background: #FFF; border-radius: 24rpx; padding: 32rpx; box-shadow: 0 2rpx 16rpx rgba(0,0,0,0.04); margin-bottom: 24rpx; }
+
+.field { margin-bottom: 28rpx; position: relative; }
+.field:last-child { margin-bottom: 0; }
+.field-label { font-size: 28rpx; font-weight: 600; color: #1E293B; display: block; margin-bottom: 14rpx; }
+
+.topic-input { width: 100%; height: 84rpx; background: #F8FAFC; border-radius: 16rpx; padding: 0 24rpx; font-size: 30rpx; box-sizing: border-box; color: #1E293B; }
+
+.content-area { width: 100%; min-height: 320rpx; background: #F8FAFC; border-radius: 16rpx; padding: 20rpx 24rpx; font-size: 28rpx; box-sizing: border-box; line-height: 1.8; color: #1E293B; }
+
+.count { text-align: right; font-size: 22rpx; color: #94A3B8; margin-top: 8rpx; display: block; }
+
+.img-zone { position: relative; }
+.preview-img { width: 200rpx; height: 200rpx; border-radius: 16rpx; }
+.img-upload { width: 200rpx; height: 200rpx; background: #F8FAFC; border-radius: 16rpx; border: 2rpx dashed #CBD5E1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.upload-plus { font-size: 56rpx; color: #CBD5E1; line-height: 1; }
+.upload-label { font-size: 22rpx; color: #94A3B8; margin-top: 8rpx; }
+.img-remove { position: absolute; top: -12rpx; right: -12rpx; width: 44rpx; height: 44rpx; background: #EF4444; color: #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22rpx; box-shadow: 0 2rpx 8rpx rgba(239,68,68,0.3); }
+
+.btn-row { display: flex; gap: 20rpx; }
+.btn-cancel { flex: 1; height: 92rpx; background: #F1F5F9; color: #64748B; border-radius: 20rpx; font-size: 30rpx; font-weight: 600; border: none; display: flex; align-items: center; justify-content: center; }
+.btn-cancel::after { border: none; }
+.btn-publish { flex: 2; height: 92rpx; background: linear-gradient(135deg, #F97316, #FB923C); color: #FFF; border-radius: 20rpx; font-size: 30rpx; font-weight: 700; border: none; display: flex; align-items: center; justify-content: center; box-shadow: 0 6rpx 24rpx rgba(249,115,22,0.3); }
+.btn-publish::after { border: none; }

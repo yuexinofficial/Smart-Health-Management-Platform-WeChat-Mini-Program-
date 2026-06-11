@@ -1,0 +1,58 @@
+<!-- AI健康建议 - Vibrant Wellness -->
+<view class="nav-header">
+  <view class="nav-back" bindtap="goBack"><text class="back-icon">←</text></view>
+  <text class="nav-title">AI 健康建议</text>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="advice-page">
+  <!-- 按钮区 -->
+  <view class="btn-duo">
+    <view class="duo-btn duo-plan" bindtap="getDailyPlan">
+      <text class="duo-icon">📋</text>
+      <text class="duo-label">生成今日计划</text>
+      <text class="duo-desc">基于数据定制</text>
+      <view class="loading-dots" wx:if="{{loadingPlan}}">
+        <view class="dot"></view><view class="dot"></view><view class="dot"></view>
+      </view>
+    </view>
+    <view class="duo-btn duo-advice" bindtap="getHealthAdvice">
+      <text class="duo-icon">💡</text>
+      <text class="duo-label">专业健康建议</text>
+      <text class="duo-desc">7日数据分析</text>
+      <view class="loading-dots" wx:if="{{loadingAdvice}}">
+        <view class="dot"></view><view class="dot"></view><view class="dot"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-card" wx:if="{{loadingAdvice || loadingPlan}}">
+    <view class="spinner"></view>
+    <text class="loading-msg">AI 正在分析你的健康数据...</text>
+    <text class="loading-sub">这可能需要几秒钟</text>
+  </view>
+
+  <!-- 结果 -->
+  <view class="result-card" wx:if="{{adviceText && !loadingAdvice && !loadingPlan}}">
+    <view class="result-head">
+      <text class="result-icon">{{isPlan ? '📋' : '💡'}}</text>
+      <text class="result-label">{{isPlan ? '今日健康计划' : '专业健康建议'}}</text>
+    </view>
+    <view class="result-body">
+      <text class="result-text">{{adviceText}}</text>
+    </view>
+  </view>
+
+  <!-- 初始空状态 -->
+  <view class="init-card" wx:if="{{!adviceText && !loadingAdvice && !loadingPlan}}">
+    <text class="init-emoji">🌟</text>
+    <text class="init-title">AI 健康顾问</text>
+    <text class="init-desc">基于你最近 7 天的运动、饮食、睡眠数据，AI 将为你生成个性化的健康建议和每日计划</text>
+    <view class="init-features">
+      <text class="feat">📊 数据驱动分析</text>
+      <text class="feat">🎯 个性化建议</text>
+      <text class="feat">📅 每日计划定制</text>
+    </view>
+  </view>
+</view>
